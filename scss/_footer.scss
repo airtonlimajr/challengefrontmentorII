@@ -1,0 +1,71 @@
+@use 'colors';
+@use "resets";
+@use "fonts";
+
+footer {
+  position: relative;
+  padding: 2rem 0;
+  background: colors.$Very-dark-black-blue-footer-background;
+  text-align: center;
+  border-top-right-radius: 100px;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
+  @media (min-width: 1024px) {
+    margin-top: 3rem;
+  }
+}
+
+.footer-logo {
+  margin-bottom: 2rem;
+  @media (min-width: 768px) {
+    padding-top: 19px;
+  }
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+}
+
+.footer-nav-list-item {
+  font-weight: 600;
+  color: #fff;
+  padding: 0.1rem 0;
+  font-family: fonts.$Overpass;
+  &:first-child {
+    padding: 1.2rem;
+    @media (min-width: 768px) {
+      padding-left: 0;
+    }
+  }
+}
+
+.footer-link {
+  color: colors.$Grayish-blue-footer-text;
+  text-decoration: none;
+  font-family: fonts.$Overpass;
+  @media (pointer: fine) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.attribution {
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  transform: translateY(30px);
+}
+.attribution a {
+  color: #fff;
+  font-family: fonts.$Ubuntu;
+  // padding: 0 0.3rem;
+}

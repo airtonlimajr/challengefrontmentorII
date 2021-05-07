@@ -1,0 +1,231 @@
+@use "colors";
+@use "fonts";
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    padding: 2rem 3rem;
+  }
+  @media (min-width: 1440px) {
+    padding: 2rem 6rem;
+  }
+}
+
+.hamburger {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  padding: 0.3rem;
+  &:focus {
+    outline: none;
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.nav {
+  position: absolute;
+  top: 15vh;
+  left: 50%;
+  transform: translateX(-50%) scale(0) rotate(360deg);
+  background-color: #fff;
+  font-family: fonts.$Ubuntu;
+  padding: 2rem;
+  width: 90%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  color: colors.$Very-dark-blue-headings;
+  transform-origin: right top;
+  transition: transform 0.5s linear, opacity 0.3s ease-in;
+  opacity: 0;
+  @media (min-width: 768px) {
+    background-color: transparent;
+    position: relative;
+    width: 100%;
+    top: 0vh;
+    left: 30px;
+    transform: translateX(0) scale(1) rotate(0);
+    opacity: 1;
+    flex-direction: row;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+  }
+}
+nav.show {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+li {
+  list-style-type: none;
+}
+
+.nav-list-item {
+  position: relative;
+}
+.nav-list {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  top: 0px;
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+}
+.nav-dropdown-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  @media (min-width: 768px) {
+    padding: 0.5rem 1rem;
+  }
+  @media (pointer: fine) {
+    span {
+      cursor: pointer;
+    }
+  }
+  img {
+    margin-left: 0.5rem;
+    transition-property: transform, opacity;
+    transition: 0.3s linear;
+  }
+  &:hover {
+    opacity: 0.8;
+    img {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.nav-dropdown-list {
+  height: 0;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+  background-color: rgba(#eee, 0.8);
+  width: 100%;
+  padding: 1rem 0;
+  opacity: 0;
+  @media (min-width: 768px) {
+    color: #fff;
+    padding: 0 1rem;
+  }
+
+  li {
+    margin: 1rem 0;
+    @media (min-width: 768px) {
+      margin: 0 0;
+      text-align: left;
+    }
+    @media (pointer: fine) {
+      cursor: pointer;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem 0;
+    opacity: 0.8;
+    @media (min-width: 768px) {
+      margin: 1rem 0;
+    }
+    @media (pointer: fine) {
+      &:hover {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.nav-list-item:hover > .nav-dropdown-list {
+  height: auto;
+  transform: scale(1, 1);
+  opacity: 1;
+  @media (min-width: 768px) {
+    height: auto;
+    background-color: #fff;
+    color: colors.$Very-dark-blue-headings;
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+  }
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(#eee, 0.8);
+  @media (min-width: 768px) {
+    flex-direction: row;
+    border: none;
+    padding: 0 0;
+    width: 50%;
+  }
+  @media (min-width: 1024px) {
+    width: 31%;
+    justify-self: flex-end;
+  }
+  @media (min-width: 1440px) {
+    width: 25%;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 3rem;
+    font-weight: 500;
+    @media (min-width: 768px) {
+      padding: 0.5rem 1.5rem;
+    }
+    @media (pointer: fine) {
+      cursor: pointer;
+    }
+  }
+  .login-btn {
+    margin-bottom: 1rem;
+    background-color: transparent;
+    color: colors.$Very-dark-blue-headings;
+    @media (min-width: 768px) {
+      color: #fff;
+      margin-bottom: 0;
+    }
+  }
+
+  .signup-btn {
+    background: linear-gradient(colors.$Very-light-red, colors.$Light-red);
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+
+    @media (min-width: 768px) {
+      background: #fff;
+      color: colors.$Light-red;
+    }
+    @media (pointer: fine) {
+      &:hover {
+        background-color: colors.$Very-light-red-cta-hover-background;
+        color: #fff;
+      }
+    }
+  }
+}

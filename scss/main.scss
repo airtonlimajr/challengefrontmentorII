@@ -1,0 +1,315 @@
+@use "navbar";
+@use "footer";
+@use "colors";
+@use "resets";
+@use "fonts";
+body {
+  font-size: 16px;
+  background-color: #fdfdfd;
+}
+main {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.banner {
+  position: relative;
+  background: url("../images/bg-pattern-intro.svg"),
+    linear-gradient(colors.$Very-light-red, colors.$Light-red);
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-bottom-left-radius: 100px;
+  @media (min-width: 1024px) {
+    height: 90vh;
+    margin-bottom: 4rem;
+  }
+}
+
+.banner-heading {
+  color: colors.$White-text;
+  font-family: fonts.$Ubuntu;
+  padding: 0 2rem;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+  h1 {
+    font-size: 2.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    @media (min-width: 1024px) {
+      font-size: 4rem;
+    }
+  }
+  p {
+    font-size: 1.1rem;
+    opacity: 0.7;
+    @media (min-width: 1024px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.banner-cta {
+  position: relative;
+  padding: 0 2rem;
+  z-index: 1;
+  .cta-btn {
+    margin: 0 0.5rem;
+    border-radius: 50px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-family: fonts.$Ubuntu;
+    font-weight: 500;
+    @media (pointer: fine) {
+      cursor: pointer;
+    }
+  }
+  .start-btn {
+    color: colors.$Light-red-cta-text;
+    background-color: #fff;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1.2rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: colors.$Very-light-red-cta-hover-background;
+      color: #fff;
+    }
+  }
+
+  .learn-btn {
+    border: 1px solid #fff;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background-color: #fff;
+      color: colors.$Light-red;
+    }
+  }
+}
+
+// section-two
+.main-sections {
+  position: relative;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  color: colors.$Very-dark-blue-headings;
+  margin: 2rem 0;
+  @media (min-width: 1024px) {
+    margin: 5rem 0;
+  }
+  h1,
+  h2 {
+    font-family: fonts.$Ubuntu;
+    margin: 1.5rem 0;
+    font-weight: 500;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.section-container {
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+.section-two {
+  .img-container {
+    background-image: url("../images/illustration-editor-mobile.svg");
+    width: 100%;
+    height: 331px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1rem;
+    @media (min-width: 1024px) {
+      background-image: url("../images/illustration-editor-desktop.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 925px;
+      height: 882px;
+      position: relative;
+      left: 150px;
+      top: -100px;
+    }
+    @media (min-width: 1440px) {
+      left: 218px;
+      background-size: cover;
+    }
+  }
+  &::after {
+    content: "";
+    background-image: url("../images/illustration-phones.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -400px;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    z-index: 100;
+    @media (min-width: 768px) {
+      left: 200px;
+    }
+    @media (min-width: 1024px) {
+      left: 0px;
+      height: 450px;
+      bottom: -500px;
+    }
+    @media (min-width: 1440px) {
+      left: 0px;
+      height: 800px;
+      bottom: -800px;
+    }
+  }
+}
+
+.text-content-block {
+  max-width: 70ch;
+  @media (min-width: 768px) {
+    margin: 0 auto;
+  }
+  @media (min-width: 1024px) {
+    text-align: left;
+    margin: 6rem 0 0 2rem;
+  }
+  @media (min-width: 1440px) {
+    margin: 6rem 0 0 3rem;
+  }
+  p {
+    font-family: fonts.$Overpass;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: #5a5f63;
+  }
+}
+
+.section-three {
+  color: #fff;
+  margin-top: 12rem;
+  padding: 10rem 0 5rem 0;
+  background: linear-gradient(
+    colors.$Very-dark-gray-blue,
+    colors.$Very-dark-desaturated-blue
+  );
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  overflow: hidden;
+  @media (min-width: 1024px) {
+    padding: 4rem 0 5rem 0;
+  }
+  &::after {
+    content: "";
+    background-image: url("../images/bg-pattern-circles.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -230px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    @media (min-width: 1024px) {
+      top: -450px;
+      left: -360px;
+      width: 100%;
+      height: 1014px;
+    }
+    @media (min-width: 1440px) {
+      top: -510px;
+      left: -310px;
+      width: 100%;
+      height: 1014px;
+    }
+  }
+  .text-content-block {
+    position: relative;
+    z-index: 500;
+    @media (min-width: 1024px) {
+      float: right;
+      margin: 0 50px 50px 0;
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    @media (min-width: 1440px) {
+      float: right;
+      margin-right: 100px;
+      margin: 0 100px 100px 0;
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+    p {
+      font-family: fonts.$Overpass;
+      color: #fff;
+      opacity: 0.8;
+      font-size: 1.2rem;
+      @media (min-width: 1024px) {
+        font-size: 1.2rem;
+      }
+      @media (min-width: 1440px) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.section-four {
+  @media (min-width: 1024px) {
+    display: flex;
+    align-items: center;
+    .text-content {
+      margin-right: 50px;
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  @media (min-width: 1440px) {
+    display: flex;
+    align-items: center;
+    .text-content {
+      margin-right: 100px;
+      h2 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  .img-container {
+    background-image: url("../images/illustration-laptop-mobile.svg");
+    width: 100%;
+    height: 331px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1rem;
+    @media (min-width: 1024px) {
+      background-image: url("../images/illustration-laptop-desktop.svg");
+      height: 612px;
+      width: 700px;
+      transform: translateX(-100px);
+    }
+    @media (min-width: 1440px) {
+      background-image: url("../images/illustration-laptop-desktop.svg");
+      height: 786px;
+      width: 974px;
+      transform: translateX(-200px);
+    }
+  }
+}
